@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off LabVhdl -c LabVhdl --vector_source="C:/Lab_VHDL/ULA16bitsWaveForm.vwf" --testbench_file="C:/Lab_VHDL/simulation/qsim/ULA16bitsWaveForm.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off LabVhdl -c LabVhdl --vector_source="C:/Lab_VHDL/MemoriaROM16bitsWaveForm.vwf" --testbench_file="C:/Lab_VHDL/simulation/qsim/MemoriaROM16bitsWaveForm.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -25,8 +25,9 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Thu Oct 25 15:02:36 2018
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off LabVhdl -c LabVhdl --vector_source=C:/Lab_VHDL/ULA16bitsWaveForm.vwf --testbench_file=C:/Lab_VHDL/simulation/qsim/ULA16bitsWaveForm.vwf.vht
+    Info: Processing started: Fri Oct 26 23:31:48 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off LabVhdl -c LabVhdl --vector_source=C:/Lab_VHDL/MemoriaROM16bitsWaveForm.vwf --testbench_file=C:/Lab_VHDL/simulation/qsim/MemoriaROM16bitsWaveForm.vwf.vht
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "LabVhdl"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
 Completed successfully. 
@@ -51,15 +52,16 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Thu Oct 25 15:02:39 2018
+    Info: Processing started: Fri Oct 26 23:31:51 2018
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Lab_VHDL/simulation/qsim/ LabVhdl -c LabVhdl
+Info (119006): Selected device 5CGXFC7C7F23C8 for design "LabVhdl"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file LabVhdl.vho in folder "C:/Lab_VHDL/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4740 megabytes
-    Info: Processing ended: Thu Oct 25 15:02:42 2018
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 4738 megabytes
+    Info: Processing ended: Fri Oct 26 23:31:53 2018
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 Completed successfully. 
 
@@ -77,71 +79,68 @@ Reading C:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
 
 # 10.5b
 
-
 # do LabVhdl.do
+
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-
-# Start time: 15:02:43 on Oct 25,2018
+# Start time: 23:31:54 on Oct 26,2018
 # vcom -work work LabVhdl.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package altera_lnsim_components
+
 # -- Loading package VITAL_Timing
 # -- Loading package VITAL_Primitives
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
-# -- Compiling entity ULA16bits
-# -- Compiling architecture structure of ULA16bits
-# End time: 15:02:43 on Oct 25,2018, Elapsed time: 0:00:00
+# -- Compiling entity MemoriaROM16bits
+# -- Compiling architecture structure of MemoriaROM16bits
+# End time: 23:31:54 on Oct 26,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:02:44 on Oct 25,2018
-# vcom -work work ULA16bitsWaveForm.vwf.vht 
+# Start time: 23:31:54 on Oct 26,2018
+# vcom -work work MemoriaROM16bitsWaveForm.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity ULA16bits_vhd_vec_tst
-# -- Compiling architecture ULA16bits_arch of ULA16bits_vhd_vec_tst
-# End time: 15:02:44 on Oct 25,2018, Elapsed time: 0:00:00
+# -- Compiling entity MemoriaROM16bits_vhd_vec_tst
+# -- Compiling architecture MemoriaROM16bits_arch of MemoriaROM16bits_vhd_vec_tst
+# End time: 23:31:54 on Oct 26,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.ULA16bits_vhd_vec_tst 
-# Start time: 15:02:44 on Oct 25,2018
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.MemoriaROM16bits_vhd_vec_tst 
+# Start time: 23:31:54 on Oct 26,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.ula16bits_vhd_vec_tst(ula16bits_arch)
+# Loading work.memoriarom16bits_vhd_vec_tst(memoriarom16bits_arch)
 # Loading altera_lnsim.altera_lnsim_components
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading cyclonev.cyclonev_atom_pack(body)
 # Loading cyclonev.cyclonev_components
-# Loading work.ula16bits(structure)
+# Loading work.memoriarom16bits(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
-# ** Warning: Design size of 18855 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
 # after#32
 
-# End time: 15:02:45 on Oct 25,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
+# End time: 23:31:55 on Oct 26,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Lab_VHDL/ULA16bitsWaveForm.vwf...
+Reading C:/Lab_VHDL/MemoriaROM16bitsWaveForm.vwf...
 
 Reading C:/Lab_VHDL/simulation/qsim/LabVhdl.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Lab_VHDL/simulation/qsim/LabVhdl_20181025150245.sim.vwf
+Writing the resulting VWF to C:/Lab_VHDL/simulation/qsim/LabVhdl_20181026233155.sim.vwf
 
 Finished VCD to VWF conversion.
 

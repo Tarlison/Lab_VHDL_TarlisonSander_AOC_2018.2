@@ -1,36 +1,33 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-ENTITY MemoriaROM16bits IS
- PORT (
-		ADDR : IN STD_LOGIC_VECTOR (4 DOWNTO 0); 
-		DOUT : OUT STD_LOGIC_VECTOR (4 DOWNTO 0)
-		);
+Entity MemoriaROM16bits is 
+	Port
+	(
+		adress: in unsigned(4 downto 0);
+		enable: in std_logic;
+		saida: out unsigned(15 downto 0)
+	);
+End MemoriaROM16bits;
+
+Architecture behavior of MemoriaROM16bits is
+
+	Type pattern is array (Natural Range <>) of unsigned(15 downto 0);
 	
- END MemoriaROM16bits;
- 
- ARCHITECTURE BEHAVIOR OF MemoriaROM16bits IS
- 
- 
- TYPE VALORESROM IS ARRAY (0 TO 31) OF STD_LOGIC_VECTOR (4 DOWNTO 0);
+	constant data : pattern (0 to 31):=
+	
+	(
+"0000000000000000","0000000000000001","0000000000000010","0000000000000011", "0000000000000100","0000000000000101","0000000000000110","0000000000000111",
+					 
+"0000000000001000","0000000000001001","0000000000001010","0000000000001011", "0000000000001100","0000000000001101","0000000000001110","0000000000001111",
+					 
+"0000000000010000","0000000000010001","0000000000010010","0000000000010011", "0000000000010100","0000000000010101","0000000000010110","0000000000010111",
+					 
+"0000000000011000","0000000000011001","0000000000011010","0000000000011011", "0000000000011100","0000000000011101","0000000000011110","0000000000011111"  );
 
- 
- CONSTANT VETDADOS : VALORESROM := ( "00000","00001","00010","00011","00100",
-											 "00101","00110","00111","01000","01001",
-											 "01010","01011","01100","01101","01110",
-											 "01111","10000","10001","10010","10011",
-											 "10100","10101","10110","10111","11000",
-											 "11001","11010","11011","11100","11101",
-											 "11110","11111" 
-											 );
- 
- BEGIN
-	PROCESS (ADDR)
-		BEGIN 
+	BEGIN
 		
-			DOUT <= VETDADOS(TO_INTEGER(UNSIGNED(ADDR)));
-			
-	END PROCESS;
- 
- END BEHAVIOR;
+		saida <= data(to_integer(adress)) when enable='0' else (Others=>'Z');
+		
+	End behavior;

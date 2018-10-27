@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/25/2018 01:11:33"
+-- Generated on "10/26/2018 23:31:50"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          MemoriaROM16bits
 -- 
@@ -33,81 +33,82 @@ END MemoriaROM16bits_vhd_vec_tst;
 ARCHITECTURE MemoriaROM16bits_arch OF MemoriaROM16bits_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL ADDR : STD_LOGIC_VECTOR(4 DOWNTO 0);
-SIGNAL DOUT : STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL adress : STD_LOGIC_VECTOR(4 DOWNTO 0);
+SIGNAL enable : STD_LOGIC;
+SIGNAL saida : STD_LOGIC_VECTOR(15 DOWNTO 0);
 COMPONENT MemoriaROM16bits
 	PORT (
-	ADDR : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-	DOUT : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+	adress : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+	enable : IN STD_LOGIC;
+	saida : BUFFER STD_LOGIC_VECTOR(15 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
 	i1 : MemoriaROM16bits
 	PORT MAP (
 -- list connections between master ports and signals
-	ADDR => ADDR,
-	DOUT => DOUT
+	adress => adress,
+	enable => enable,
+	saida => saida
 	);
--- ADDR[4]
-t_prcs_ADDR_4: PROCESS
+-- adress[4]
+t_prcs_adress_4: PROCESS
 BEGIN
-	ADDR(4) <= '0';
-	WAIT FOR 320000 ps;
-	ADDR(4) <= '1';
-	WAIT FOR 320000 ps;
-	ADDR(4) <= '0';
-	WAIT FOR 320000 ps;
-	ADDR(4) <= '1';
+	adress(4) <= '0';
+	WAIT FOR 800000 ps;
+	adress(4) <= '1';
 WAIT;
-END PROCESS t_prcs_ADDR_4;
--- ADDR[3]
-t_prcs_ADDR_3: PROCESS
+END PROCESS t_prcs_adress_4;
+-- adress[3]
+t_prcs_adress_3: PROCESS
 BEGIN
-	FOR i IN 1 TO 3
+	adress(3) <= '0';
+	WAIT FOR 400000 ps;
+	adress(3) <= '1';
+	WAIT FOR 400000 ps;
+	adress(3) <= '0';
+WAIT;
+END PROCESS t_prcs_adress_3;
+-- adress[2]
+t_prcs_adress_2: PROCESS
+BEGIN
+	FOR i IN 1 TO 2
 	LOOP
-		ADDR(3) <= '0';
-		WAIT FOR 160000 ps;
-		ADDR(3) <= '1';
-		WAIT FOR 160000 ps;
+		adress(2) <= '0';
+		WAIT FOR 200000 ps;
+		adress(2) <= '1';
+		WAIT FOR 200000 ps;
 	END LOOP;
-	ADDR(3) <= '0';
+	adress(2) <= '0';
 WAIT;
-END PROCESS t_prcs_ADDR_3;
--- ADDR[2]
-t_prcs_ADDR_2: PROCESS
-BEGIN
-	FOR i IN 1 TO 6
-	LOOP
-		ADDR(2) <= '0';
-		WAIT FOR 80000 ps;
-		ADDR(2) <= '1';
-		WAIT FOR 80000 ps;
-	END LOOP;
-	ADDR(2) <= '0';
-WAIT;
-END PROCESS t_prcs_ADDR_2;
--- ADDR[1]
-t_prcs_ADDR_1: PROCESS
-BEGIN
-	FOR i IN 1 TO 12
-	LOOP
-		ADDR(1) <= '0';
-		WAIT FOR 40000 ps;
-		ADDR(1) <= '1';
-		WAIT FOR 40000 ps;
-	END LOOP;
-	ADDR(1) <= '0';
-WAIT;
-END PROCESS t_prcs_ADDR_1;
--- ADDR[0]
-t_prcs_ADDR_0: PROCESS
+END PROCESS t_prcs_adress_2;
+-- adress[1]
+t_prcs_adress_1: PROCESS
 BEGIN
 LOOP
-	ADDR(0) <= '0';
-	WAIT FOR 20000 ps;
-	ADDR(0) <= '1';
-	WAIT FOR 20000 ps;
+	adress(1) <= '0';
+	WAIT FOR 100000 ps;
+	adress(1) <= '1';
+	WAIT FOR 100000 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
-END PROCESS t_prcs_ADDR_0;
+END PROCESS t_prcs_adress_1;
+-- adress[0]
+t_prcs_adress_0: PROCESS
+BEGIN
+LOOP
+	adress(0) <= '0';
+	WAIT FOR 50000 ps;
+	adress(0) <= '1';
+	WAIT FOR 50000 ps;
+	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
+END LOOP;
+END PROCESS t_prcs_adress_0;
+
+-- enable
+t_prcs_enable: PROCESS
+BEGIN
+	enable <= '0';
+WAIT;
+END PROCESS t_prcs_enable;
 END MemoriaROM16bits_arch;

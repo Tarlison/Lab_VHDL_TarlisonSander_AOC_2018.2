@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LabVhdl
-Thu Oct 25 14:58:34 2018
+Fri Oct 26 23:48:08 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -13,12 +13,11 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Port Connectivity Checks: "Multiplexador12x1:G13"
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. State Machine - |Maquina_estados|estado
+  9. General Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +43,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Oct 25 14:58:34 2018       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 26 23:48:08 2018       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; LabVhdl                                     ;
-; Top-level Entity Name           ; ULA16bits                                   ;
+; Top-level Entity Name           ; Maquina_estados                             ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 52                                          ;
+; Total registers                 ; 4                                           ;
+; Total pins                      ; 5                                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -70,7 +69,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; ULA16bits          ; LabVhdl            ;
+; Top-level entity name                                                           ; Maquina_estados    ; LabVhdl            ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -160,69 +159,71 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                             ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path      ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; QAnd.vhd                         ; yes             ; User VHDL File  ; C:/Lab_VHDL/QAnd.vhd              ;         ;
-; QOr.vhd                          ; yes             ; User VHDL File  ; C:/Lab_VHDL/QOr.vhd               ;         ;
-; QXor.vhd                         ; yes             ; User VHDL File  ; C:/Lab_VHDL/QXor.vhd              ;         ;
-; QNot.vhd                         ; yes             ; User VHDL File  ; C:/Lab_VHDL/QNot.vhd              ;         ;
-; Somadorde16bits.vhd              ; yes             ; User VHDL File  ; C:/Lab_VHDL/Somadorde16bits.vhd   ;         ;
-; QNand.vhd                        ; yes             ; User VHDL File  ; C:/Lab_VHDL/QNand.vhd             ;         ;
-; ShiftEsquerda.vhd                ; yes             ; User VHDL File  ; C:/Lab_VHDL/ShiftEsquerda.vhd     ;         ;
-; ULA16bits.vhd                    ; yes             ; User VHDL File  ; C:/Lab_VHDL/ULA16bits.vhd         ;         ;
-; ShiftDireita.vhd                 ; yes             ; User VHDL File  ; C:/Lab_VHDL/ShiftDireita.vhd      ;         ;
-; Subtracaode16bits.vhd            ; yes             ; User VHDL File  ; C:/Lab_VHDL/Subtracaode16bits.vhd ;         ;
-; Multiplexador12x1.vhd            ; yes             ; User VHDL File  ; C:/Lab_VHDL/Multiplexador12x1.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                           ;
++----------------------------------+-----------------+-----------------+---------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path    ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------+---------+
+; Maquina_estados.vhd              ; yes             ; User VHDL File  ; C:/Lab_VHDL/Maquina_estados.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 48           ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 66           ;
-;     -- 7 input functions                    ; 4            ;
-;     -- 6 input functions                    ; 26           ;
-;     -- 5 input functions                    ; 2            ;
-;     -- 4 input functions                    ; 0            ;
-;     -- <=3 input functions                  ; 34           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 52           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; SEL[0]~input ;
-; Maximum fan-out                             ; 51           ;
-; Total fan-out                               ; 393          ;
-; Average fan-out                             ; 2.31         ;
-+---------------------------------------------+--------------+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimate of Logic utilization (ALMs needed) ; 4       ;
+;                                             ;         ;
+; Combinational ALUT usage for logic          ; 6       ;
+;     -- 7 input functions                    ; 0       ;
+;     -- 6 input functions                    ; 0       ;
+;     -- 5 input functions                    ; 0       ;
+;     -- 4 input functions                    ; 0       ;
+;     -- <=3 input functions                  ; 6       ;
+;                                             ;         ;
+; Dedicated logic registers                   ; 4       ;
+;                                             ;         ;
+; I/O pins                                    ; 5       ;
+;                                             ;         ;
+; Total DSP Blocks                            ; 0       ;
+;                                             ;         ;
+; Maximum fan-out node                        ; X~input ;
+; Maximum fan-out                             ; 5       ;
+; Total fan-out                               ; 35      ;
+; Average fan-out                             ; 1.75    ;
++---------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name       ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------------+--------------+
-; |ULA16bits                 ; 66 (0)              ; 0 (0)                     ; 0                 ; 0          ; 52   ; 0            ; |ULA16bits                       ; ULA16bits         ; work         ;
-;    |Multiplexador12x1:G13| ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA16bits|Multiplexador12x1:G13 ; Multiplexador12x1 ; work         ;
-;    |Subtracaode16bits:G12| ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA16bits|Subtracaode16bits:G12 ; Subtracaode16bits ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------+-------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name     ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
+; |Maquina_estados           ; 6 (6)               ; 4 (4)                     ; 0                 ; 0          ; 5    ; 0            ; |Maquina_estados    ; Maquina_estados ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |Maquina_estados|estado              ;
++----------+----------+----------+----------+----------+
+; Name     ; estado.D ; estado.C ; estado.B ; estado.A ;
++----------+----------+----------+----------+----------+
+; estado.A ; 0        ; 0        ; 0        ; 0        ;
+; estado.B ; 0        ; 0        ; 1        ; 1        ;
+; estado.C ; 0        ; 1        ; 0        ; 1        ;
+; estado.D ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
 
 
 +------------------------------------------------------+
@@ -230,35 +231,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 4     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; 1:1                ; 16 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |ULA16bits|Subtracaode16bits:G12|Add0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Multiplexador12x1:G13"                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; m    ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; n    ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; o    ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; p    ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -266,22 +246,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_io_obuf        ; 16                          ;
-; arriav_lcell_comb     ; 66                          ;
-;     arith             ; 17                          ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 16                          ;
-;     extend            ; 4                           ;
-;         7 data inputs ; 4                           ;
-;     normal            ; 45                          ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 16                          ;
-;         5 data inputs ; 2                           ;
-;         6 data inputs ; 26                          ;
-; boundary_port         ; 52                          ;
+; arriav_ff             ; 4                           ;
+;     CLR               ; 2                           ;
+;     ENA CLR           ; 2                           ;
+; arriav_lcell_comb     ; 8                           ;
+;     normal            ; 8                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 2                           ;
+; boundary_port         ; 5                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.60                        ;
-; Average LUT depth     ; 2.67                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.33                        ;
 +-----------------------+-----------------------------+
 
 
@@ -290,7 +266,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -300,7 +276,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Thu Oct 25 14:58:17 2018
+    Info: Processing started: Fri Oct 26 23:47:51 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LabVhdl -c LabVhdl
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -323,11 +299,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file qnot.vh
     Info (12022): Found design unit 1: QNot-behavior File: C:/Lab_VHDL/QNot.vhd Line: 11
     Info (12023): Found entity 1: QNot File: C:/Lab_VHDL/QNot.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file memoriarom16bits.vhd
-    Info (12022): Found design unit 1: MemoriaROM16bits-BEHAVIOR File: C:/Lab_VHDL/MemoriaROM16bits.vhd Line: 13
+    Info (12022): Found design unit 1: MemoriaROM16bits-behavior File: C:/Lab_VHDL/MemoriaROM16bits.vhd Line: 14
     Info (12023): Found entity 1: MemoriaROM16bits File: C:/Lab_VHDL/MemoriaROM16bits.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file memoriaram16bits.vhd
-    Info (12022): Found design unit 1: MemoriaRAM16bits-COMPORTAMENTO File: C:/Lab_VHDL/MemoriaRAM16bits.vhd Line: 13
-    Info (12023): Found entity 1: MemoriaRAM16bits File: C:/Lab_VHDL/MemoriaRAM16bits.vhd Line: 3
+    Info (12022): Found design unit 1: MemoriaRAM16bits-BEHAVIOR File: C:/Lab_VHDL/MemoriaRAM16bits.vhd Line: 13
+    Info (12023): Found entity 1: MemoriaRAM16bits File: C:/Lab_VHDL/MemoriaRAM16bits.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file somadorde16bits.vhd
     Info (12022): Found design unit 1: Somadorde16bits-BEHAVIOR File: C:/Lab_VHDL/Somadorde16bits.vhd Line: 13
     Info (12023): Found entity 1: Somadorde16bits File: C:/Lab_VHDL/Somadorde16bits.vhd Line: 6
@@ -349,29 +325,36 @@ Info (12021): Found 2 design units, including 1 entities, in source file subtrac
 Info (12021): Found 2 design units, including 1 entities, in source file multiplexador12x1.vhd
     Info (12022): Found design unit 1: Multiplexador12x1-Multiplexador12x1 File: C:/Lab_VHDL/Multiplexador12x1.vhd Line: 16
     Info (12023): Found entity 1: Multiplexador12x1 File: C:/Lab_VHDL/Multiplexador12x1.vhd Line: 5
-Info (12127): Elaborating entity "ULA16bits" for the top level hierarchy
-Info (12128): Elaborating entity "QAnd" for hierarchy "QAnd:G1" File: C:/Lab_VHDL/ULA16bits.vhd Line: 91
-Info (12128): Elaborating entity "QOr" for hierarchy "QOr:G2" File: C:/Lab_VHDL/ULA16bits.vhd Line: 92
-Info (12128): Elaborating entity "QNot" for hierarchy "QNot:G3" File: C:/Lab_VHDL/ULA16bits.vhd Line: 93
-Info (12128): Elaborating entity "QXor" for hierarchy "QXor:G5" File: C:/Lab_VHDL/ULA16bits.vhd Line: 95
-Info (12128): Elaborating entity "QNand" for hierarchy "QNand:G6" File: C:/Lab_VHDL/ULA16bits.vhd Line: 96
-Info (12128): Elaborating entity "ShiftDireita" for hierarchy "ShiftDireita:G7" File: C:/Lab_VHDL/ULA16bits.vhd Line: 97
-Info (12128): Elaborating entity "ShiftEsquerda" for hierarchy "ShiftEsquerda:G9" File: C:/Lab_VHDL/ULA16bits.vhd Line: 99
-Info (12128): Elaborating entity "Somadorde16bits" for hierarchy "Somadorde16bits:G11" File: C:/Lab_VHDL/ULA16bits.vhd Line: 101
-Info (12128): Elaborating entity "Subtracaode16bits" for hierarchy "Subtracaode16bits:G12" File: C:/Lab_VHDL/ULA16bits.vhd Line: 102
-Info (12128): Elaborating entity "Multiplexador12x1" for hierarchy "Multiplexador12x1:G13" File: C:/Lab_VHDL/ULA16bits.vhd Line: 103
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12021): Found 2 design units, including 1 entities, in source file extensordesinal8to16bits.vhd
+    Info (12022): Found design unit 1: ExtensordeSinal8To16bits-BEHAVIOR File: C:/Lab_VHDL/ExtensordeSinal8To16bits.vhd Line: 14
+    Info (12023): Found entity 1: ExtensordeSinal8To16bits File: C:/Lab_VHDL/ExtensordeSinal8To16bits.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file bancoderegistradores.vhd
+    Info (12022): Found design unit 1: BancodeRegistradores-BEHAVIOR File: C:/Lab_VHDL/BancodeRegistradores.vhd Line: 15
+    Info (12023): Found entity 1: BancodeRegistradores File: C:/Lab_VHDL/BancodeRegistradores.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file flipflopd.vhd
+    Info (12022): Found design unit 1: FlipFlopD-BEHAVIOR File: C:/Lab_VHDL/FlipFlopD.vhd Line: 14
+    Info (12023): Found entity 1: FlipFlopD File: C:/Lab_VHDL/FlipFlopD.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file flipflopjk.vhd
+    Info (12022): Found design unit 1: FlipFlopJK-BEHV File: C:/Lab_VHDL/FlipFlopJK.vhd Line: 13
+    Info (12023): Found entity 1: FlipFlopJK File: C:/Lab_VHDL/FlipFlopJK.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file unidadedecontrole.vhd
+    Info (12022): Found design unit 1: UnidadedeControle-behavior File: C:/Lab_VHDL/UnidadedeControle.vhd Line: 15
+    Info (12023): Found entity 1: UnidadedeControle File: C:/Lab_VHDL/UnidadedeControle.vhd Line: 2
+Info (12021): Found 2 design units, including 1 entities, in source file maquina_estados.vhd
+    Info (12022): Found design unit 1: Maquina_estados-RTL File: C:/Lab_VHDL/Maquina_estados.vhd Line: 12
+    Info (12023): Found entity 1: Maquina_estados File: C:/Lab_VHDL/Maquina_estados.vhd Line: 5
+Info (12127): Elaborating entity "Maquina_estados" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 118 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 36 input pins
-    Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 66 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Thu Oct 25 14:58:34 2018
+Info (21057): Implemented 12 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 2 output pins
+    Info (21061): Implemented 7 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4875 megabytes
+    Info: Processing ended: Fri Oct 26 23:48:08 2018
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Total CPU time (on all processors): 00:00:37
 
 
